@@ -1,8 +1,7 @@
 var app = angular.module("app", ['jtt_github']);
 app.controller('controller', ['$scope', 'githubFactory', function($scope, githubFactory) {
 
-    //var _access_token = "<YOUR_GITHUB_ACCESS_TOKEN>";
-    var _access_token = "3448ed82e2f52693030ab139a3fef133a8b01853";
+    var _access_token = "<YOUR_GITHUB_ACCESS_TOKEN>";
 
     githubFactory.getUser({
         user:"xremix",

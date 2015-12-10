@@ -11,7 +11,7 @@ angular.module("jtt_github", [])
 
         var githubFactory = {};
 
-        getRepoByUserAndNamegithubFactory.getUser = function (_params) {
+        githubFactory.getUser = function (_params) {
             var searchData = githubSearchDataService.getNew("user", _params);
             return $http({
                 method: 'GET',

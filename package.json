@@ -1,6 +1,6 @@
 {
   "name": "angular-github-api-factory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "angularjs factory for github json rest api requests",
   "main": "Gruntfile.js",
   "scripts": {

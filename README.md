@@ -15,7 +15,7 @@ Author: Jonathan Hornung ([JohnnyTheTank](https://github.com/JohnnyTheTank))
     <script src="bower_components/angular-github-api-factory/src/angular-github-api-factory.js"></script>
     ```
 
-4. Use the factory `githubFactory`.
+4. Use the factory `githubFactory`
 
 
 ### factory methods
@@ -52,7 +52,7 @@ githubFactory.getReposByName({
     q:"<SEARCH_STRING>",
     sort:"<SORT_STRING>", // (optional) 'stars', 'forks', or 'updated'
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
-    per_page:"<ITEMS_PER_PAGE>", // (optional) default: 20
+    per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
 }).success(function(_data){
     //on success
@@ -67,7 +67,7 @@ githubFactory.getReposByUser({
     q:"<SEARCH_STRING>", // (optional)
     sort:"<SORT_STRING>", // (optional) 'stars', 'forks', or 'updated'
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
-    per_page:"<ITEMS_PER_PAGE>", // (optional) default: 20
+    per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
 }).success(function(_data){
     //on success
@@ -84,7 +84,7 @@ githubFactory.getEventsFromRepoByUserAndName({
     q:"<SEARCH_STRING>",  // (optional)
     sort:"<SORT_STRING>", // (optional)
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
-    per_page:"<ITEMS_PER_PAGE>", // (optional) default: 20
+    per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
 }).success(function(_data){
     //on success
@@ -99,7 +99,7 @@ githubFactory.getEventsByUser({
     q:"<SEARCH_STRING>", // (optional)
     sort:"<SORT_STRING>", // (optional)
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
-    per_page:"<ITEMS_PER_PAGE>", // (optional) default: 20
+    per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
 }).success(function(_data){
     //on success

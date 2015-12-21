@@ -1,7 +1,7 @@
 {
   "name": "angular-github-api-factory",
   "description": "angularjs factory for github json rest api requests",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "Gruntfile.js",
   "authors": [
     "Jonathan Hornung"

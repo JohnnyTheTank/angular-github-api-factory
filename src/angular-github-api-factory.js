@@ -84,28 +84,25 @@ angular.module("jtt_github", [])
         };
 
         this.getNew = function (_type, _params) {
-
-            var default_per_page = 20;
-
             var githubSearchData = {
-                object: {},
+                object: {
+                    access_token: _params.access_token,
+                },
                 url: "",
             };
 
+            if (typeof _params.per_page !== "undefined") {
+                githubSearchData.object.per_page = _params.per_page;
+            }
+
             switch (_type) {
                 case "user":
-                    githubSearchData.object = {
-                        access_token: _params.access_token,
-                    };
+                    githubSearchData.object.per_page = undefined;
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, []);
                     githubSearchData.url = this.getApiBaseUrl() + "users/" + _params.user;
                     break;
 
                 case "reposByUser":
-                    githubSearchData.object = {
-                        access_token: _params.access_token,
-                        per_page: _params.per_page || default_per_page
-                    };
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
                         'q', 'sort', 'order', 'page'
                     ]);
@@ -113,10 +110,6 @@ angular.module("jtt_github", [])
                     break;
 
                 case "reposByName":
-                    githubSearchData.object = {
-                        access_token: _params.access_token,
-                        per_page: _params.per_page || default_per_page
-                    };
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
                         'sort', 'order', 'page'
                     ]);
@@ -134,10 +127,6 @@ angular.module("jtt_github", [])
                     break;
 
                 case "eventsByUser":
-                    githubSearchData.object = {
-                        access_token: _params.access_token,
-                        per_page: _params.per_page || default_per_page
-                    };
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
                         'q', 'sort', 'order', 'page'
                     ]);
@@ -145,17 +134,11 @@ angular.module("jtt_github", [])
                     break;
 
                 case "eventsFromRepoByUserAndName":
-                    githubSearchData.object = {
-                        access_token: _params.access_token,
-                        per_page: _params.per_page || default_per_page
-                    };
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
                         'q', 'sort', 'order', 'page'
                     ]);
                     githubSearchData.url = this.getApiBaseUrl() + "repos/" + _params.user + "/" + _params.repo + "/events";
                     break;
-
-
             }
 
             return githubSearchData;

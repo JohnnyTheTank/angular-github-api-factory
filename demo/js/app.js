@@ -1,7 +1,7 @@
 var app = angular.module("app", ['jtt_github']);
 app.controller('controller', ['$scope', 'githubFactory', function($scope, githubFactory) {
 
-    var _access_token = "<YOUR_GITHUB_ACCESS_TOKEN>";
+    var _access_token = '<YOUR_GITHUB_ACCESS_TOKEN>';
 
     githubFactory.getUser({
         user:"xremix",
@@ -11,8 +11,8 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
     });
 
     githubFactory.getReposByUser({
-        user:"xremix",
-        per_page: 20,
+        user:"JohnnyTheTank",
+        per_page: 100,
         access_token:_access_token
     }).success(function(_data){
         console.info("repos by user", _data);
@@ -35,9 +35,9 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
     });
 
     githubFactory.getEventsFromRepoByUserAndName({
-        user:"xremix",
-        repo:"xGallerify",
-        per_page: 20,
+        user:"JohnnyTheTank",
+        repo:"apiNG",
+        per_page: 100,
         access_token:_access_token
     }).success(function(_data){
         console.info("events from repo by user and name", _data);

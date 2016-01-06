@@ -1,6 +1,6 @@
 {
   "name": "angular-github-api-factory",
-  "version": "0.5.2",
+  "version": "0.5.0",
   "description": "angularjs factory for github json rest api requests",
   "main": "dist/angular-github-api-factory.js",
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1"
   }

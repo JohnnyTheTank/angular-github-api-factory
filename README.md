@@ -4,17 +4,24 @@ Author: Jonathan Hornung ([JohnnyTheTank](https://github.com/JohnnyTheTank))
 
 ## Usage
 
-1. Install via [bower](http://bower.io/) :
+1. Install via either [bower](http://bower.io/), [npm](https://www.npmjs.com/) or downloaded files:
     1. `bower install --save angular-github-api-factory`
+    2. `npm install --save angular-github-api-factory`
+    3. download [angular-github-api-factory.zip](https://github.com/JohnnyTheTank/angular-github-api-factory/zipball/master)
 2. Add `jtt_github` to your application's module dependencies.
 3. Include dependencies in your HTML.
     1. When using bower:
-
     ```html
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-github-api-factory/src/angular-github-api-factory.js"></script>
+    <script src="bower_components/angular-github-api-factory/src/angular-github-api-factory.min.js"></script>
     ```
-
+    2. When using npm:
+    ```html
+    <script src="node_modules/angular-github-api-factory/src/angular-github-api-factory.min.js"></script>
+    ```
+    3. when using downloaded files
+    ```html
+    <script src="angular-github-api-factory.min.js"></script>
+    ```
 4. Use the factory `githubFactory`
 
 

@@ -25,9 +25,9 @@ Author: Jonathan Hornung ([JohnnyTheTank](https://github.com/JohnnyTheTank))
 githubFactory.getUser({
     user:"<USERNAME_NAME>",
     access_token:"<ACCESS_TOKEN>"
-}).success(function(_data){
+}).then(function(_data){
     //on success
-}).error(function (_data) {
+}).catch(function (_data) {
     //on error
 });
 ```
@@ -38,9 +38,9 @@ githubFactory.getRepoByUserAndName({
     user:"<USER_NAME>",
     repo:"<REPO_NAME>",
     access_token:"<ACCESS_TOKEN>"
-}).success(function(_data){
+}).then(function(_data){
     //on success
-}).error(function (_data) {
+}).catch(function (_data) {
     //on error
 });
 ```
@@ -54,9 +54,9 @@ githubFactory.getReposByName({
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
-}).success(function(_data){
+}).then(function(_data){
     //on success
-}).error(function (_data) {
+}).catch(function (_data) {
     //on error
 });
 ```
@@ -69,9 +69,9 @@ githubFactory.getReposByUser({
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
-}).success(function(_data){
+}).then(function(_data){
     //on success
-}).error(function (_data) {
+}).catch(function (_data) {
     //on error
 });
 ```
@@ -86,9 +86,9 @@ githubFactory.getEventsFromRepoByUserAndName({
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
-}).success(function(_data){
+}).then(function(_data){
     //on success
-}).error(function (_data) {
+}).catch(function (_data) {
     //on error
 });
 ```
@@ -101,9 +101,9 @@ githubFactory.getEventsByUser({
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
     access_token:"<ACCESS_TOKEN>"
-}).success(function(_data){
+}).then(function(_data){
     //on success
-}).error(function (_data) {
+}).catch(function (_data) {
     //on error
 });
 ```

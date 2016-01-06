@@ -6,7 +6,7 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
     githubFactory.getUser({
         user:"xremix",
         access_token:_access_token
-    }).success(function(_data){
+    }).then(function(_data){
         console.info("user", _data);
     });
 
@@ -22,7 +22,7 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
         q:"apiNG-plugin",
         per_page: 20,
         access_token:_access_token
-    }).success(function(_data){
+    }).then(function(_data){
         console.info("repos by name", _data);
     });
 
@@ -30,7 +30,7 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
         user:"xremix",
         per_page: 20,
         access_token:_access_token
-    }).success(function(_data){
+    }).then(function(_data){
         console.info("events by user", _data);
     });
 
@@ -39,7 +39,7 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
         repo:"apiNG",
         per_page: 100,
         access_token:_access_token
-    }).success(function(_data){
+    }).then(function(_data){
         console.info("events from repo by user and name", _data);
     });
 
@@ -48,7 +48,7 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
         repo:"xGallerify",
         per_page: 20,
         access_token:_access_token
-    }).success(function(_data){
+    }).then(function(_data){
         console.info("repo by user and name", _data);
     });
 

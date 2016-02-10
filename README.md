@@ -1,5 +1,8 @@
 **angular-github-api-factory** is an angularjs module with a github api factory.
 
+[![npm version](https://badge.fury.io/js/angular-github-api-factory.png)](https://badge.fury.io/js/angular-github-api-factory)
+[![Bower version](https://badge.fury.io/bo/angular-github-api-factory.png)](https://badge.fury.io/bo/angular-github-api-factory)
+
 Author: Jonathan Hornung ([JohnnyTheTank](https://github.com/JohnnyTheTank))
 
 ## Usage

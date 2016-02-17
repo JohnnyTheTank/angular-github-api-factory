@@ -69,7 +69,7 @@ angular.module("jtt_github", [])
         this.fillDataInObjectByList = function (_object, _params, _list) {
 
             angular.forEach(_list, function (value, key) {
-                if (typeof _params[value] !== "undefined") {
+                if (angular.isDefined(_params[value])) {
                     _object.object[value] = _params[value];
                 }
             });
@@ -85,7 +85,7 @@ angular.module("jtt_github", [])
                 url: "",
             };
 
-            if (typeof _params.per_page !== "undefined") {
+            if (angular.isDefined(_params.per_page)) {
                 githubSearchData.object.per_page = _params.per_page;
             }
 
@@ -134,7 +134,6 @@ angular.module("jtt_github", [])
                     githubSearchData.url = this.getApiBaseUrl() + "repos/" + _params.user + "/" + _params.repo + "/events";
                     break;
             }
-
             return githubSearchData;
         };
     });

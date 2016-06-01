@@ -34,7 +34,7 @@ Author: Jonathan Hornung ([JohnnyTheTank](https://github.com/JohnnyTheTank))
 ```js
 githubFactory.getUser({
     user:"<USERNAME_NAME>",
-    access_token:"<ACCESS_TOKEN>"
+    access_token:"<ACCESS_TOKEN>" // (optional)
 }).then(function(_data){
     //on success
 }).catch(function (_data) {
@@ -47,7 +47,7 @@ githubFactory.getUser({
 githubFactory.getRepoByUserAndName({
     user:"<USER_NAME>",
     repo:"<REPO_NAME>",
-    access_token:"<ACCESS_TOKEN>"
+    access_token:"<ACCESS_TOKEN>" // (optional)
 }).then(function(_data){
     //on success
 }).catch(function (_data) {
@@ -63,7 +63,7 @@ githubFactory.getReposByName({
     sort:"<SORT_STRING>", // (optional) 'stars', 'forks', or 'updated'
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
-    access_token:"<ACCESS_TOKEN>"
+    access_token:"<ACCESS_TOKEN>" // (optional)
 }).then(function(_data){
     //on success
 }).catch(function (_data) {
@@ -78,7 +78,7 @@ githubFactory.getReposByUser({
     sort:"<SORT_STRING>", // (optional) 'stars', 'forks', or 'updated'
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
-    access_token:"<ACCESS_TOKEN>"
+    access_token:"<ACCESS_TOKEN>" // (optional)
 }).then(function(_data){
     //on success
 }).catch(function (_data) {
@@ -95,7 +95,7 @@ githubFactory.getEventsFromRepoByUserAndName({
     sort:"<SORT_STRING>", // (optional)
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
-    access_token:"<ACCESS_TOKEN>"
+    access_token:"<ACCESS_TOKEN>" // (optional)
 }).then(function(_data){
     //on success
 }).catch(function (_data) {
@@ -110,7 +110,7 @@ githubFactory.getEventsByUser({
     sort:"<SORT_STRING>", // (optional)
     order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
     per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
-    access_token:"<ACCESS_TOKEN>"
+    access_token:"<ACCESS_TOKEN>" // (optional)
 }).then(function(_data){
     //on success
 }).catch(function (_data) {

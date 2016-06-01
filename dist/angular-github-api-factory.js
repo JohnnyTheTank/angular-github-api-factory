@@ -1,6 +1,6 @@
 /**
     @name: angular-github-api-factory 
-    @version: 0.5.0 (17-02-2016) 
+    @version: 0.5.1 (01-06-2016) 
     @author: Jonathan Hornung 
     @url: https://github.com/JohnnyTheTank/angular-github-api-factory#readme 
     @license: MIT
@@ -86,14 +86,16 @@ angular.module("jtt_github", [])
 
         this.getNew = function (_type, _params) {
             var githubSearchData = {
-                object: {
-                    access_token: _params.access_token,
-                },
+                object: {},
                 url: "",
             };
 
             if (angular.isDefined(_params.per_page)) {
                 githubSearchData.object.per_page = _params.per_page;
+            }
+
+            if (angular.isDefined(_params.access_token)) {
+                githubSearchData.object.access_token = _params.access_token;
             }
 
             switch (_type) {

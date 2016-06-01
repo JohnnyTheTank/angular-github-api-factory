@@ -1,7 +1,7 @@
 {
   "name": "angular-github-api-factory",
   "description": "angularjs factory for github json rest api requests",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "dist/angular-github-api-factory.js",
   "authors": [
     "Jonathan Hornung"

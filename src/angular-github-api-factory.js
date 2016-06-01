@@ -79,14 +79,16 @@ angular.module("jtt_github", [])
 
         this.getNew = function (_type, _params) {
             var githubSearchData = {
-                object: {
-                    access_token: _params.access_token,
-                },
+                object: {},
                 url: "",
             };
 
             if (angular.isDefined(_params.per_page)) {
                 githubSearchData.object.per_page = _params.per_page;
+            }
+
+            if (angular.isDefined(_params.access_token)) {
+                githubSearchData.object.access_token = _params.access_token;
             }
 
             switch (_type) {

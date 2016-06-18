@@ -15,11 +15,11 @@ Author: Jonathan Hornung ([JohnnyTheTank](https://github.com/JohnnyTheTank))
 3. Include dependencies in your HTML.
     1. When using bower:
     ```html
-    <script src="bower_components/angular-github-api-factory/src/angular-github-api-factory.min.js"></script>
+    <script src="bower_components/angular-github-api-factory/dist/angular-github-api-factory.min.js"></script>
     ```
     2. When using npm:
     ```html
-    <script src="node_modules/angular-github-api-factory/src/angular-github-api-factory.min.js"></script>
+    <script src="node_modules/angular-github-api-factory/dist/angular-github-api-factory.min.js"></script>
     ```
     3. when using downloaded files
     ```html

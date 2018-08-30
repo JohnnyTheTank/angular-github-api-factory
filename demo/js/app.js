@@ -7,11 +7,17 @@ app.controller('controller', ['$scope', 'githubFactory', function($scope, github
         console.info("user", _data);
     });
 
+    githubFactory.getUsers({
+        q:"Johnny",
+        per_page: 100,
+    }).then(function(_data){
+        console.info("users", _data);
+    });
 
     githubFactory.getReposByUser({
         user:"JohnnyTheTank",
         per_page: 100,
-    }).success(function(_data){
+    }).then(function(_data){
         console.info("repos by user", _data);
     });
 

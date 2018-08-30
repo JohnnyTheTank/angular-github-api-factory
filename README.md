@@ -42,6 +42,21 @@ githubFactory.getUser({
 });
 ```
 
+```js
+//https://developer.github.com/v3/search/#search-users
+
+githubFactory.getUsers({
+    q:"<SEARCH_STRING>",  // (optional)
+    sort:"<SORT_STRING>", // (optional) 'followers', 'repositories', 'joined'
+    order:"<SORT_ORDER>", // (optional) 'desc', 'asc'
+    per_page:"<ITEMS_PER_PAGE>", // (optional) valid values: 1-100 | default: 30
+}).then(function(_data){
+    //on success
+}).catch(function (_data) {
+    //on error
+});
+```
+
 #### getRepo
 ```js
 githubFactory.getRepoByUserAndName({

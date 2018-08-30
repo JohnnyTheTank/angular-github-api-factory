@@ -1,19 +1,28 @@
 /**
     @name: angular-github-api-factory 
-    @version: 0.5.1 (01-06-2016) 
+    @version: 0.5.2 (30-08-2018) 
     @author: Jonathan Hornung 
     @url: https://github.com/JohnnyTheTank/angular-github-api-factory#readme 
     @license: MIT
 */
-"use strict";
+'use strict';
 
-angular.module("jtt_github", [])
+angular.module('jtt_github', [])
     .factory('githubFactory', ['$http', 'githubSearchDataService', function ($http, githubSearchDataService) {
 
         var githubFactory = {};
 
+        githubFactory.getUsers = function (_params) {
+            var searchData = githubSearchDataService.getNew('users', _params);
+            return $http({
+                method: 'GET',
+                url: searchData.url,
+                params: searchData.object,
+            });
+        };
+
         githubFactory.getUser = function (_params) {
-            var searchData = githubSearchDataService.getNew("user", _params);
+            var searchData = githubSearchDataService.getNew('user', _params);
             return $http({
                 method: 'GET',
                 url: searchData.url,
@@ -22,7 +31,7 @@ angular.module("jtt_github", [])
         };
 
         githubFactory.getReposByUser = function (_params) {
-            var searchData = githubSearchDataService.getNew("reposByUser", _params);
+            var searchData = githubSearchDataService.getNew('reposByUser', _params);
             return $http({
                 method: 'GET',
                 url: searchData.url,
@@ -31,7 +40,7 @@ angular.module("jtt_github", [])
         };
 
         githubFactory.getReposByName = function (_params) {
-            var searchData = githubSearchDataService.getNew("reposByName", _params);
+            var searchData = githubSearchDataService.getNew('reposByName', _params);
             return $http({
                 method: 'GET',
                 url: searchData.url,
@@ -40,7 +49,7 @@ angular.module("jtt_github", [])
         };
 
         githubFactory.getRepoByUserAndName = function (_params) {
-            var searchData = githubSearchDataService.getNew("repoByUserAndName", _params);
+            var searchData = githubSearchDataService.getNew('repoByUserAndName', _params);
             return $http({
                 method: 'GET',
                 url: searchData.url,
@@ -49,7 +58,7 @@ angular.module("jtt_github", [])
         };
 
         githubFactory.getEventsByUser = function (_params) {
-            var searchData = githubSearchDataService.getNew("eventsByUser", _params);
+            var searchData = githubSearchDataService.getNew('eventsByUser', _params);
             return $http({
                 method: 'GET',
                 url: searchData.url,
@@ -58,7 +67,7 @@ angular.module("jtt_github", [])
         };
 
         githubFactory.getEventsFromRepoByUserAndName = function (_params) {
-            var searchData = githubSearchDataService.getNew("eventsFromRepoByUserAndName", _params);
+            var searchData = githubSearchDataService.getNew('eventsFromRepoByUserAndName', _params);
             return $http({
                 method: 'GET',
                 url: searchData.url,
@@ -69,8 +78,8 @@ angular.module("jtt_github", [])
         return githubFactory;
     }])
     .service('githubSearchDataService', function () {
-        this.getApiBaseUrl = function (_params) {
-            return "https://api.github.com/";
+        this.getApiBaseUrl = function () {
+            return 'https://api.github.com/';
         };
 
         this.fillDataInObjectByList = function (_object, _params, _list) {
@@ -87,7 +96,7 @@ angular.module("jtt_github", [])
         this.getNew = function (_type, _params) {
             var githubSearchData = {
                 object: {},
-                url: "",
+                url: '',
             };
 
             if (angular.isDefined(_params.per_page)) {
@@ -99,48 +108,55 @@ angular.module("jtt_github", [])
             }
 
             switch (_type) {
-                case "user":
+                case 'user':
                     githubSearchData.object.per_page = undefined;
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, []);
-                    githubSearchData.url = this.getApiBaseUrl() + "users/" + _params.user;
+                    githubSearchData.url = this.getApiBaseUrl() + 'users/' + _params.user;
                     break;
 
-                case "reposByUser":
-                    githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
-                        'q', 'sort', 'order', 'page'
-                    ]);
-                    githubSearchData.url = this.getApiBaseUrl() + "users/" + _params.user + "/repos";
-                    break;
-
-                case "reposByName":
+                case 'users':
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
                         'sort', 'order', 'page'
                     ]);
-                    githubSearchData.url = this.getApiBaseUrl() + "search/repositories?q=" + _params.q;
+                    githubSearchData.url = this.getApiBaseUrl() + 'search/users?q=' + _params.q;
                     break;
 
-                case "repoByUserAndName":
+                case 'reposByUser':
+                    githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
+                        'q', 'sort', 'order', 'page'
+                    ]);
+                    githubSearchData.url = this.getApiBaseUrl() + 'users/' + _params.user + '/repos';
+                    break;
+
+                case 'reposByName':
+                    githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
+                        'sort', 'order', 'page'
+                    ]);
+                    githubSearchData.url = this.getApiBaseUrl() + 'search/repositories?q=' + _params.q;
+                    break;
+
+                case 'repoByUserAndName':
                     githubSearchData.object = {
                         access_token: _params.access_token,
                     };
 
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, []);
 
-                    githubSearchData.url = this.getApiBaseUrl() + "repos/" + _params.user + "/" + _params.repo;
+                    githubSearchData.url = this.getApiBaseUrl() + 'repos/' + _params.user + '/' + _params.repo;
                     break;
 
-                case "eventsByUser":
+                case 'eventsByUser':
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
                         'q', 'sort', 'order', 'page'
                     ]);
-                    githubSearchData.url = this.getApiBaseUrl() + "users/" + _params.user + "/events";
+                    githubSearchData.url = this.getApiBaseUrl() + 'users/' + _params.user + '/events';
                     break;
 
-                case "eventsFromRepoByUserAndName":
+                case 'eventsFromRepoByUserAndName':
                     githubSearchData = this.fillDataInObjectByList(githubSearchData, _params, [
                         'q', 'sort', 'order', 'page'
                     ]);
-                    githubSearchData.url = this.getApiBaseUrl() + "repos/" + _params.user + "/" + _params.repo + "/events";
+                    githubSearchData.url = this.getApiBaseUrl() + 'repos/' + _params.user + '/' + _params.repo + '/events';
                     break;
             }
             return githubSearchData;

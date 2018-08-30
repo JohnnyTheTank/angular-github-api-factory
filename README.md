@@ -42,9 +42,9 @@ githubFactory.getUser({
 });
 ```
 
+#### getUsers
 ```js
-//https://developer.github.com/v3/search/#search-users
-
+// https://developer.github.com/v3/search/#search-users
 githubFactory.getUsers({
     q:"<SEARCH_STRING>",  // (optional)
     sort:"<SORT_STRING>", // (optional) 'followers', 'repositories', 'joined'
